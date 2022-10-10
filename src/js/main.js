@@ -1,4 +1,4 @@
-import { Slider } from './modules/index';
+import { Slider, VideoPlayer } from './modules/index';
 
 window.addEventListener('DOMContentLoaded', () => {
     const slider = new Slider({
@@ -6,4 +6,10 @@ window.addEventListener('DOMContentLoaded', () => {
         buttons: '.next'
     });
     slider.render();
+
+    const player = new VideoPlayer({
+        overlay: '.overlay',
+        triggers: '.showup .play'
+    });
+    player.init();
 });
