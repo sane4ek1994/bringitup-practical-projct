@@ -1,11 +1,11 @@
-export class Slider {
-    constructor ({ page, buttons }) {
-        this.page = document.querySelector(page);
-        this.slides = [...this.page.children]; // получаем дочерние страницы
-        this.buttons = document.querySelectorAll(buttons);
-        this.slideIndex = 1;
+import { Slider } from "../index";
+
+export class MainSlider extends Slider {
+    constructor(page, buttons) {
+        super(page, buttons);
     }
 
+    
     showSlides(n) {
         if (n > this.slides.length) {
             this.slideIndex = 1;

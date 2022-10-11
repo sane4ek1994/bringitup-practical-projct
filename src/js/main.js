@@ -1,7 +1,7 @@
-import { Slider, VideoPlayer } from './modules/index';
+import { MainSlider, VideoPlayer } from './modules/index';
 
 window.addEventListener('DOMContentLoaded', () => {
-    const slider = new Slider({
+    const slider = new MainSlider({
         page: '.page',
         buttons: '.next'
     });
