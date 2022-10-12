@@ -14,10 +14,6 @@ export class MainSlider extends Slider {
         if (n < 1) {
             this.slideIndex = this.slides.length;
         }
-
-        this.slides.forEach(slide => {
-            slide.style.display = 'none';
-        });
         
         try {
             this.hanson.style.opacity = '0';
@@ -27,12 +23,17 @@ export class MainSlider extends Slider {
                 setTimeout(() => {
                     this.hanson.style.opacity = '1';
                     this.hanson.classList.add('slideInUp');
-                },3000)
+                }, 3000)
             } else {
                 this.hanson.classList.remove('slideInUp');
             }
 
         } catch(e) {}
+
+        [...this.slides].forEach(slide => {
+            slide.style.display = 'none';
+        });
+
         this.slides[this.slideIndex - 1].style.display = 'block';
     }
 

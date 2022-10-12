@@ -23,6 +23,7 @@ window.addEventListener('DOMContentLoaded', () => {
         prevBtn: '.modules__info-btns .slick-prev',
         activeClass: 'card-active',
         animate: true,
+        autoplay: true
     });
     modulesSlider.init();
 
