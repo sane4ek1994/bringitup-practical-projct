@@ -1,11 +1,11 @@
-export class Slider {
-    constructor ({ page, buttons }) {
-        this.page = document.querySelector(page);
-        this.slides = [...this.page.children]; // получаем дочерние страницы
-        this.buttons = document.querySelectorAll(buttons);
-        this.slideIndex = 1;
+import { Slider } from "../index";
+
+export class MainSlider extends Slider {
+    constructor(buttons) {
+        super(buttons);
     }
 
+    
     showSlides(n) {
         if (n > this.slides.length) {
             this.slideIndex = 1;
@@ -14,10 +14,6 @@ export class Slider {
         if (n < 1) {
             this.slideIndex = this.slides.length;
         }
-
-        this.slides.forEach(slide => {
-            slide.style.display = 'none';
-        });
         
         try {
             this.hanson.style.opacity = '0';
@@ -27,12 +23,17 @@ export class Slider {
                 setTimeout(() => {
                     this.hanson.style.opacity = '1';
                     this.hanson.classList.add('slideInUp');
-                },3000)
+                }, 3000)
             } else {
                 this.hanson.classList.remove('slideInUp');
             }
 
         } catch(e) {}
+
+        [...this.slides].forEach(slide => {
+            slide.style.display = 'none';
+        });
+
         this.slides[this.slideIndex - 1].style.display = 'block';
     }
 
