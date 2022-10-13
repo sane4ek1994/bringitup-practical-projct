@@ -23,10 +23,11 @@ export class Difference {
 
   hideCadrs(cardsArray) {
     cardsArray.forEach((card, index, array) => {
-      if (index !== array.length - 1) {
-        card.style.display = 'none'
-        card.classList.add('animated')
+      if (index === array.length - 1) {
+        return
       }
+      card.style.display = 'none'
+      card.classList.add('animated')
     })
   }
 
