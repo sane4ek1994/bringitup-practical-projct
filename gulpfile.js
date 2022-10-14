@@ -7,7 +7,7 @@ const browsersync = require('browser-sync')
 const dist = './dist/'
 
 gulp.task('copy-html', () => {
-  return gulp.src('./src/index.html').pipe(gulp.dest(dist)).pipe(browsersync.stream())
+  return gulp.src('./src/*.html').pipe(gulp.dest(dist)).pipe(browsersync.stream())
 })
 
 gulp.task('build-ts', () => {
@@ -59,7 +59,7 @@ gulp.task('watch', () => {
     notify: true
   })
 
-  gulp.watch('./src/index.html', gulp.parallel('copy-html'))
+  gulp.watch('./src/*.html', gulp.parallel('copy-html'))
   gulp.watch('./src/assets/**/*.*', gulp.parallel('copy-assets'))
   gulp.watch('./src/js/**/*.js', gulp.parallel('build-ts'))
 })
