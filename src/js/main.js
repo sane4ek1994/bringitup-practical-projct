@@ -1,4 +1,4 @@
-import { MainSlider, MiniSlider, VideoPlayer, Difference } from './modules/index'
+import { MainSlider, MiniSlider, VideoPlayer, Difference, Form } from './modules/index'
 
 window.addEventListener('DOMContentLoaded', () => {
   const slider = new MainSlider({
@@ -46,4 +46,10 @@ window.addEventListener('DOMContentLoaded', () => {
     cards: '.officer__card-item'
   })
   difference.init()
+
+  const form = new Form({
+    forms: '.form',
+    url: 'assets/question.php'
+  })
+  form.init()
 })
