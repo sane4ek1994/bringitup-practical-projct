@@ -3,9 +3,16 @@ import { MainSlider, MiniSlider, VideoPlayer, Difference, Form } from './modules
 window.addEventListener('DOMContentLoaded', () => {
   const slider = new MainSlider({
     container: '.page',
-    buttons: '.next'
+    nextMainBtns: '.next'
   })
   slider.render()
+
+  const modulePageSlider = new MainSlider({
+    container: '.moduleapp',
+    nextMainBtns: '.next',
+    prevMainBtns: '.prev'
+  })
+  modulePageSlider.render()
 
   const showUpSlider = new MiniSlider({
     container: '.showup__content-slider',

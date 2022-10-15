@@ -1,7 +1,8 @@
 export class Slider {
   constructor({
     container = null,
-    buttons = null,
+    nextMainBtns = null,
+    prevMainBtns = null,
     nextBtn = null,
     prevBtn = null,
     activeClass = '',
@@ -12,7 +13,8 @@ export class Slider {
     try {
       this.slides = this.container.children
     } catch (e) {} // получаем дочерние страницы
-    this.buttons = document.querySelectorAll(buttons)
+    this.nextMainBtns = document.querySelectorAll(nextMainBtns)
+    this.prevMainBtns = document.querySelectorAll(prevMainBtns)
     this.nextBtn = document.querySelector(nextBtn)
     this.prevBtn = document.querySelector(prevBtn)
     this.activeClass = activeClass

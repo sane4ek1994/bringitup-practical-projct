@@ -1,8 +1,8 @@
 import { Slider } from '../index'
 
 export class MainSlider extends Slider {
-  constructor(buttons) {
-    super(buttons)
+  constructor(nextMainBtns, prevMainBtns) {
+    super(nextMainBtns, prevMainBtns)
   }
 
   showSlides(n) {
@@ -39,24 +39,35 @@ export class MainSlider extends Slider {
     this.showSlides((this.slideIndex += n))
   }
 
+  bindTriggers() {
+    this.nextMainBtns.forEach(button => {
+      button.addEventListener('click', () => {
+        this.plusSlides(1)
+      })
+
+      button.parentNode.previousElementSibling.addEventListener('click', event => {
+        event.preventDefault()
+        this.slideIndex = 1
+        this.showSlides(this.slideIndex)
+      })
+    })
+
+    this.prevMainBtns.forEach(btn => {
+      btn.addEventListener('click', event => {
+        event.stopPropagation() // отмена всплытия событий
+        this.plusSlides(-1)
+      })
+    })
+  }
+
   render() {
-    try {
+    if (this.container) {
       try {
         this.hanson = document.querySelector('.hanson')
       } catch (e) {}
-      this.buttons.forEach(button => {
-        button.addEventListener('click', () => {
-          this.plusSlides(1)
-        })
-
-        button.parentNode.previousElementSibling.addEventListener('click', event => {
-          event.preventDefault()
-          this.slideIndex = 1
-          this.showSlides(this.slideIndex)
-        })
-      })
 
       this.showSlides(this.slideIndex)
-    } catch (e) {}
+      this.bindTriggers()
+    }
   }
 }
