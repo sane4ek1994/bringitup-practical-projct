@@ -1,4 +1,4 @@
-import { MainSlider, MiniSlider, VideoPlayer, Difference, Form } from './modules/index'
+import { MainSlider, MiniSlider, VideoPlayer, Difference, Form, ShowInfo, Download } from './modules/index'
 
 window.addEventListener('DOMContentLoaded', () => {
   const slider = new MainSlider({
@@ -66,4 +66,14 @@ window.addEventListener('DOMContentLoaded', () => {
     url: 'assets/question.php'
   })
   form.init()
+
+  const infoBlock = new ShowInfo({
+    triggersSelector: '.plus'
+  })
+  infoBlock.init()
+
+  const downloadFile = new Download({
+    triggersSelector: '.download'
+  })
+  downloadFile.init()
 })
