@@ -48,6 +48,12 @@ window.addEventListener('DOMContentLoaded', () => {
   })
   player.init()
 
+  const playerModules = new VideoPlayer({
+    overlay: '.overlay',
+    triggers: '.module__video-item .play'
+  })
+  playerModules.init()
+
   const difference = new Difference({
     oldOfficer: '.officerold',
     newOfficer: '.officernew',
